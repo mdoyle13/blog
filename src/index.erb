@@ -8,7 +8,7 @@ layout: default
     <h3>How I ran basic analytics on my own Spotify streaming data and compared it to my 2021 "wrapped" </h3>
   </hgroup>
   <p>While scrolling through my Spotify wrapped for 2021, some things struck me as being a little off. I wanted to get my hands on the raw data to check things for myself. Unfortnately, the Spotify API (at the time of writing this) does not have the ability to pull a user's entire streaming history. You can, however, request an export of your data <a href="https://www.spotify.com/us/account/privacy/" target="_blank">here</a>. So that's what I did!</p>
-  <p>After a few days, I received an email with a link to download the exported data. It contained a number of JSON data files the data I was interested in was the entire streaming history for the past year. The data looks like this:</p>
+  <p>After a few days, I received an email with a link to download the exported data. It contained a number of JSON data files, including every stream from the past year. That data looks like this:</p>
   <pre>
 [
   {
@@ -82,7 +82,7 @@ layout: default
   </div>
   <p>
     Ignoring the podcast in the first row of the table, crunching my raw streaming data is still yielding different results from "wrapped".
-    If "time spent streaming" an artist is how the rankings worked, then <strong>Khruangbin</strong> would be in my top 5 artists - but they are not.
+    If "time spent streaming" an artist is how the wrapped rankings work, then <strong>Khruangbin</strong> would be in my top 5 artists - but they are not.
    </p>
 </section>
 
