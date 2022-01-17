@@ -3,25 +3,143 @@
 title: Homepage
 layout: default
 ---
+<section>
+  <hgroup>
+    <h2>Investigating Spotify Wrapped in Detail</h2>
+    <h3>How I ran basic analytics on my own Spotify streaming data and compared it to my 2021 "wrapped" </h3>
+  </hgroup>
+  <p>While scrolling through my Spotify wrapped for 2021 some things struck me as being a little off. I wanted to get my hands on the raw data to check things for myself. Unfortnately, the Spotify API (at the time of writing this) does not have the ability to pull a user's streaming history. You can, however, request an export of your data <a href="https://www.spotify.com/us/account/privacy/" target="_blank">here</a>. So that's what I did!</p>
+  <p>After a few days, I received an email with a link to download the exported data. It contained a number of things but I was interested in my streaming history over the last year. It's JSON data that looks like this:</p>
+  <pre>
+[
+  {
+    "endTime" : "2020-12-14 19:55",
+    "artistName" : "Alex Chilton",
+    "trackName" : "Oogum Boogum",
+    "msPlayed" : 206840
+  },  
+  {
+    "endTime" : "2020-12-14 20:04",
+    "artistName" : "The Pastels",
+    "trackName" : "Nothing To Be Done",
+    "msPlayed" : 232133
+    }
+  ]
+  </pre>
+  
+  <p>Continue reading to see how the raw data that Spotify sent me compares to the results of last year's "wrapped".</p>
+  
+</section>
+<section>
+  <h3>Top 10 Artists by Stream Count</h3>
+  <p>First - is a table showing my calculations from the raw data that I received from Spotify and on the right is a screenshot from the corresponding metric from "wrapped".</p>
+  <div class="grid">
+    <table role="grid">
+      <thead>
+        <tr>
+          <th scope="col">Artist Name</th>
+          <th scope="col"># of Streams</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% site.data.top_ten_artists_by_stream_count.each do |data| %>
+          <tr>
+            <th scope="row"><%= data[0] %></th>
+            <td><%= data[1] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<h2>Top 10 Artists by Stream Count</h2>
-<ul>
-  <% site.data.top_ten_artists_by_stream_count.each do |data| %>
-    <li><%= data[0] %> - <%= data[1] %></li>
-  <% end %>
-</ul>
+    <figure>
+      <figcaption>Wrapped Screenshot</figcaption>
+      <img src="images/spotify/top_artists.png" alt="Spotify Wrapped Top Artists">
+    </figure>
+  </div>
+  <p>
+    If you compare the table data to the screenshot, you can see that <strong>Shannon & The Clams</strong> and <strong>Daft Punk</strong> are missing from the offical "wrapped". What could be the reason for this? Maybe Top Artists for "wrapped" are calculated by listen time rather than # of streams.
+  </p>
+</section>
 
+<section>
+  <h3>Top 10 Artists by Play Time</h3>
+  <div class="grid">
+    <table role="grid">
+      <thead>
+        <tr>
+          <th scope="col">Artist Name</th>
+          <th scope="col">Minutes Streamed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% site.data.top_ten_artists_by_ms_streamed.each do |data| %>
+          <tr>
+            <th scope="row"><%= data[0] %></th>
+            <td><%=  data[1].to_i / 60000 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Ignoring the podcast in the first row of the table, crunching my raw streaming data is still yielding some different results than "wrapped" is showing.
+    If "time spent streaming" an artist is how the rankings worked, then <strong>Khruangbin</strong> would be in my top 5 artists - but they are not.
+   </p>
+</section>
 
-<h2>Top 10 Artists by Play Time</h2>
-<ul>
-  <% site.data.top_ten_artists_by_ms_streamed.each do |data| %>
-    <li><%= data[0] %> - <%= data[1].to_i / 60000 %> minutes</li>
-  <% end %>
-</ul>
+<section>
+  <h3>Top 10 Songs by Stream Count</h3>
+  <p>Here's the data breakdown for top songs with the corresponding screenshot from my Spotify Wrapped</p>
+  <div class="grid">
+    <table role="grid">
+      <thead>
+        <tr>
+          <th scope="col">Track Name</th>
+          <th scope="col">Artist Name</th>
+          <th scope="col">Stream Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% site.data.top_ten_songs_by_stream_count.each do |song| %>
+          <tr>
+            <th scope="row"><%= song.trackName %></th>
+            <td><%= song.artistName %></td>
+            <td><%= song.playCount %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <figure>
+      <figcaption>Wrapped Screenshot</figcaption>
+      <img src="images/spotify/top_songs.png" alt="Spotify Wrapped Top Songs">
+    </figure>
+  </div>
+  <p>
+    Here we can see that "The Boy" by <strong>Shannon & The Clams</strong> is missing from the screenshot but I streamed it 17 times (according to the raw data). Also - there appears to be a tie between the top 3 songs (at 19 streams) which does match up well to the official "wrapped"
+  </p>
+  <p>
+    There also appears to be a tie (at 15 streams) for Chnam oun Dop-Pram Muy (I'm 16), My Lady's On Fire and Nighttime in the Switching Yard. Apparently, Spotify chose Nighttime in the Switching Yard to win that tie.
+  </p>
+</section>
 
-<h2>Top 10 Songs by Stream Count</h2>
-<ul>
-  <% site.data.top_ten_songs_by_stream_count.each do |song| %>
-    <li><%= song.trackName %> by <%=song.artistName %> (<%= song.playCount %>)</li>
-  <% end %>
-</ul>
+<section>
+  <h3>Top Song</h3>
+  <div class="grid">
+    <img src="images/spotify/top_song.png" alt="">
+    <p>The raw data that I recieved shows that I listened to <em>Brother Father Mother Sister</em> 19 times while 
+    the wrapped screenshot shows 18 times. I must have listened to the song 1 time between when Spotify created my "wrapped" and when the raw data export happened.</p>
+  </div>
+</section>
+
+<section>
+  <h3>"Wrapping Up"</h3>
+  <p>Overall - I think that Spotify Wrapped was fairly accurate when comparing to it to the raw data, but I don't understand why certain artists and songs are just not represented in my "wrapped" rollup. I clearly listened to <strong>Shannon & The Clams</strong> a lot last year so what's the deal?</p>
+  <p>Possible explanations:</p>
+  <ul>
+    <li>They don't include indie artists in "wrapped" unless its clear you listened to them A LOT</li>
+    <li>Some artists are excluded for some internal reason at Spotify</li>
+    <li>Spotify uses more datapoints than streams & counts (very likely)</li>
+    <li>I have bad / out of sync data</li>
+  </ul>
+</section>
