@@ -1,0 +1,27 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+title: Homepage
+layout: default
+---
+
+<h2>Top 10 Artists by Stream Count</h2>
+<ul>
+  <% site.data.top_ten_artists_by_stream_count.each do |data| %>
+    <li><%= data[0] %> - <%= data[1] %></li>
+  <% end %>
+</ul>
+
+
+<h2>Top 10 Artists by Play Time</h2>
+<ul>
+  <% site.data.top_ten_artists_by_ms_streamed.each do |data| %>
+    <li><%= data[0] %> - <%= data[1].to_i / 60000 %> minutes</li>
+  <% end %>
+</ul>
+
+<h2>Top 10 Songs by Stream Count</h2>
+<ul>
+  <% site.data.top_ten_songs_by_stream_count.each do |song| %>
+    <li><%= song.trackName %> by <%=song.artistName %> (<%= song.playCount %>)</li>
+  <% end %>
+</ul>

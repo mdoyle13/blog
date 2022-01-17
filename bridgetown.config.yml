@@ -25,3 +25,5 @@ permalink: pretty
 # timezone: America/Los_Angeles
 # pagination:
 #   enabled: true
+
+content_engine: resource
