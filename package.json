@@ -29,5 +29,8 @@
   },
   "resolutions": {
     "postcss-focus-within": "^4.0.0"
+  },
+  "dependencies": {
+    "@picocss/pico": "^1.4.4"
   }
 }

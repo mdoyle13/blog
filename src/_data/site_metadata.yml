@@ -5,7 +5,7 @@
 # in the templates via {{ site.metadata.myvariable }}.
 
 title: Mike Doyle
-tagline: Mike Dev Blog - Full Stack Ruby/Rails Developer
+tagline: Mike Dev Blog - Full Stack Ruby/Rails, JS/CSS, AWS Cloud Developer
 email:
 description: >-
   
