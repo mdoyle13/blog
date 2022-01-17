@@ -1,5 +1,9 @@
 @import "@picocss/pico";
 
 nav {
-  border-bottom: 1px solid gray;
+  box-shadow: 0 1px 0 gray;
+}
+
+nav .logo a {
+  color: var(--h1-color);
 }
