@@ -9,23 +9,24 @@ layout: default
   </hgroup>
   <p>While scrolling through my Spotify wrapped for 2021, some things struck me as being a little off. I wanted to get my hands on the raw data to check things for myself. Unfortnately, the Spotify API (at the time of writing this) does not have the ability to pull a user's entire streaming history. You can, however, request an export of your data <a href="https://www.spotify.com/us/account/privacy/" target="_blank">here</a>. So that's what I did!</p>
   <p>After a few days, I received an email with a link to download the exported data. It contained a number of JSON data files, including every stream from the past year. That data looks like this:</p>
-  <pre>
-[
-  {
-    "endTime" : "2020-12-14 19:55",
-    "artistName" : "Alex Chilton",
-    "trackName" : "Oogum Boogum",
-    "msPlayed" : 206840
-  },  
-  {
-    "endTime" : "2020-12-14 20:04",
-    "artistName" : "The Pastels",
-    "trackName" : "Nothing To Be Done",
-    "msPlayed" : 232133
-  }
-]
-  </pre>
-  
+  <%= markdownify do %>
+  ```json
+  [
+    {
+      "endTime" : "2020-12-14 19:55",
+      "artistName" : "Alex Chilton",
+      "trackName" : "Oogum Boogum",
+      "msPlayed" : 206840
+    },  
+    {
+      "endTime" : "2020-12-14 20:04",
+      "artistName" : "The Pastels",
+      "trackName" : "Nothing To Be Done",
+      "msPlayed" : 232133
+    }
+  ]
+  ```
+  <% end %>
   <p>Let's see how the raw data compares to Spotify "Wrapped".</p>
   
 </section>
