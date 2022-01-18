@@ -8,7 +8,7 @@ layout: default
     <h2>How I ran basic analytics on my own Spotify streaming data and compared it to my 2021 "wrapped" </h2>
   </hgroup>
   <p>While scrolling through my Spotify wrapped for 2021, some things struck me as being a little off. I wanted to get my hands on the raw data to check things for myself. Unfortnately, the Spotify API (at the time of writing this) does not have the ability to pull a user's entire streaming history. You can, however, request an export of your data <a href="https://www.spotify.com/us/account/privacy/" target="_blank">here</a>. So that's what I did!</p>
-  <p>After a few days, I received an email with a link to download the exported data. It contained a number of JSON data files, including every stream from the past year. That data looks like this:</p>
+  <p>A few days after requesting the data from Spotify I received an email with a link to download the exported data. It contained a number of JSON data files, including every stream from the past year. That data looks like this:</p>
   <%= markdownify do %>
   ```json
   [
@@ -27,7 +27,7 @@ layout: default
   ]
   ```
   <% end %>
-  <p>Let's see how the raw data compares to Spotify "Wrapped".</p>
+  <p>So I started to play with the data a bit to try and compare it to what Spotify included in my "wrapped". Let's see how the raw data compares to Spotify "Wrapped".</p>
   
 </section>
 <section>
