@@ -1,12 +1,11 @@
 ---
-title: Home
-layout: default
+layout: post
+title: Comparing my 2021 Spotify Wrapped to my Raw Streaming Data
+subtitle: How I ran basic analytics on my own Spotify streaming data and compared it to my 2021 "wrapped" 
+date: 2022-01-22 00:00:00 -0000
 ---
+
 <section>
-  <hgroup>
-    <h1>Comparing my 2021 Spotify Wrapped to my Raw Streaming Data</h1>
-    <h2>How I ran basic analytics on my own Spotify streaming data and compared it to my 2021 "wrapped" </h2>
-  </hgroup>
   <p>While scrolling through my Spotify wrapped for 2021, some things struck me as being a little off. I wanted to get my hands on the raw data to check things for myself. Unfortnately, the Spotify API (at the time of writing this) does not have the ability to pull a user's entire streaming history. You can, however, request an export of your data <a href="https://www.spotify.com/us/account/privacy/" target="_blank">here</a>. So that's what I did!</p>
   <p>A few days after requesting the data from Spotify I received an email with a link to download the exported data. It contained a number of JSON data files, including every stream from the past year. That data looks like this:</p>
   <%= markdownify do %>
@@ -53,7 +52,7 @@ layout: default
 
     <figure>
       <figcaption>Wrapped Screenshot</figcaption>
-      <img src="images/spotify/top_artists.png" alt="Spotify Wrapped Top Artists">
+      <img src="/images/spotify/top_artists.png" alt="Spotify Wrapped Top Artists">
     </figure>
   </div>
   <p>
@@ -112,7 +111,7 @@ layout: default
     
     <figure>
       <figcaption>Wrapped Screenshot</figcaption>
-      <img src="images/spotify/top_songs.png" alt="Spotify Wrapped Top Songs">
+      <img src="/images/spotify/top_songs.png" alt="Spotify Wrapped Top Songs">
     </figure>
   </div>
   <p>
@@ -126,7 +125,7 @@ layout: default
 <section>
   <h3>Top Song</h3>
   <div class="grid">
-    <img src="images/spotify/top_song.png" alt="">
+    <img src="/images/spotify/top_song.png" alt="">
     <p>The raw data shows that I listened to <em>Brother Father Mother Sister</em> by Tim Maia 19 times - while
     the wrapped screenshot shows 18 times. I must have listened to the song 1 time between Spotify creating my "wrapped" and when the raw data export happened.</p>
   </div>

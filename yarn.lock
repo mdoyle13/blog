@@ -47,10 +47,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@picocss/pico@^1.4.4":
-  version "1.4.4"
-  resolved "https://registry.npmjs.org/@picocss/pico/-/pico-1.4.4.tgz"
-  integrity sha512-MuL4MOY1Tugf91N06mhYETVqMiNeT9gObMJ0WNrnbSGBw61gsqXzn7ScjXvVpnQmFC8DP13mluzz1s+ogpiuEQ==
+"@picocss/pico@^1.5.4":
+  version "1.5.10"
+  resolved "https://registry.npmjs.org/@picocss/pico/-/pico-1.5.10.tgz"
+  integrity sha512-+LafMsrwPxXQMk6sI///TmSInCwwZmq+K7SikyL3N/4GhhwzyPC+TQLUEqmrLyjluR+uIpFFcqjty30Rtr6GxQ==
 
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"

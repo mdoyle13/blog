@@ -22,6 +22,6 @@
     "postcss-focus-within": "^4.0.0"
   },
   "dependencies": {
-    "@picocss/pico": "^1.4.4"
+    "@picocss/pico": "^1.5.4"
   }
 }
