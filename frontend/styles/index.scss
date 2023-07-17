@@ -1,8 +1,17 @@
 @import "syntax-highlighting";
 @import "@picocss/pico";
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body > nav {
   box-shadow: 0 1px 0 gray;
+}
+
+body > nav a svg {
+  vertical-align: text-bottom;
+  height: 1rem;
 }
 
 body > footer {
@@ -14,4 +23,15 @@ body > footer {
 
 nav .logo a {
   color: var(--h1-color);
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+nav li a.active {
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }

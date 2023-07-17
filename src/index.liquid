@@ -1,0 +1,16 @@
+---
+title: Home
+layout: default
+---
+
+{% for post in collections.posts.resources %}
+  <section>
+    <hgroup>
+      <h2><a href="{{ post.relative_url }}">{{ post.data.title }}</a></h2>
+      <h3>{{ post.subtitle }}</h3>
+    </hgroup>
+    <small>{{ post.data.date | date: "%b %d, %Y" }}</small>
+  </div>
+  <hr />
+  </section>
+{% endfor %}

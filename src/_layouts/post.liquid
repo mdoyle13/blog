@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-
-<h1>{{ page.title }}</h1>
+<small>{{ page.date | | date: "%b %d, %Y" }}</small>
+<hgroup>
+  <h1>{{ page.title }}</h1>
+  <h2>{{ page.subtitle }}</h2>
+</hgroup>
 
 {{ content }}
